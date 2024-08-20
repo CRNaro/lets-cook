@@ -74,3 +74,11 @@ export default function CocktailCard() {
     )
 
 }
+
+// from django.db import models
+
+// class FavoriteCocktail(models.Model):
+//     name = models.CharField(max_length=200)
+//     ingredients = models.TextField()
+//     instructions = models.TextField()
+//     image_url = models.URLField()
