@@ -6,6 +6,7 @@ import { Global, css } from '@emotion/react'
 import CssBaseline from '@mui/material/CssBaseline';
 import { usedState, useEffect } from 'react'  
 import { Card, CardContent, Typography } from '@mui/material'
+import { Button } from '@mui/material'
 
 const theme = createTheme({
   palette: {
@@ -42,6 +43,18 @@ export default function CocktailCard() {
       return 'Loading...'
     }
 
+    function handleSave() {
+      fetch('http://localhost:8000/api/favorites', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(cocktail),
+      });
+    }
+
+
+
     const thumbnailUrl = `${cocktail.strDrinkThumb}/preview`
 
     return (
@@ -68,6 +81,9 @@ export default function CocktailCard() {
                     {cocktail.strInstructions}
                 </Typography>
                 <img src={thumbnailUrl} alt={cocktail.strDrink} />
+                <Button variant="contained" color="primary" onClick={handleSave}>
+                    Save
+                </Button>
             </CardContent>
         </Card>
         
