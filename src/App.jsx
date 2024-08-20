@@ -5,6 +5,7 @@ import { ThemeProvider } from '@emotion/react'
 import { createTheme } from '@mui/material/styles'
 import { Global, css } from '@emotion/react'
 import CssBaseline from '@mui/material/CssBaseline';
+import { Button } from '@mui/material'
 import CocktailCard from './components/CocktailCard'
 import SongCard from './components/SongCard'
 
@@ -29,8 +30,9 @@ return (
         background-color: ${theme.palette.primary.main};
       }`}/>
       <div>
-          <h1>Let's Shake It Up!</h1>
-
+        <Button variant='contained' color='primary' sx={{ padding: 2, fontSize: 20 }}>
+          Let's Shake It Up!
+          </Button>
          
       </div>
       </ThemeProvider>

@@ -11,7 +11,7 @@ createRoot(document.getElementById('root')).render(
     <App />
     <Box display={{ xs: 'block', md: 'flex' }}>
     <CocktailCard />
-    <SongCard />
+    {/* <SongCard /> */}
     </Box>
   </StrictMode>,
 )
