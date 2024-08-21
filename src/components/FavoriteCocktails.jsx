@@ -46,29 +46,3 @@ function FavoriteCocktails() {
 }
 
 export default FavoriteCocktails;
-
-/* <Card sx={{ width: 300, height: 600, margin: 1 }}>
-<CardContent>
-    <Typography variant="h5" component="h2">
-        {cocktail.strDrink}
-    </Typography>
-    <Typography color="textSecondary">
-        {cocktail.strIngredient1}{' '}  
-        {cocktail.strIngredient2}{' '} 
-        {cocktail.strIngredient3}{' '} 
-        {cocktail.strIngredient4}{' '}  
-        {cocktail.strIngredient5}{' '}  
-        {cocktail.strIngredient6}{' '} 
-        {cocktail.strIngredient7}{' '} 
-        {cocktail.strIngredient8}{' '} 
-        {cocktail.strIngredient9}{' '} 
-        {cocktail.strIngredient10}{' '}  
-        {cocktail.strIngredient11}{' '}  
-        {cocktail.strIngredient12}
-    </Typography>
-    <Typography variant="body2" component="p">
-        {cocktail.strInstructions}
-    </Typography>
-    <img src={thumbnailUrl} alt={cocktail.strDrink} />
-</CardContent>
-</Card> */

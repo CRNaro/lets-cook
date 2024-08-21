@@ -1,10 +1,9 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { ThemeProvider } from '@emotion/react'
 import { createTheme } from '@mui/material/styles'
 import { Global, css } from '@emotion/react'
-import CssBaseline from '@mui/material/CssBaseline';
-import { usedState, useEffect } from 'react'  
+import CssBaseline from '@mui/material/CssBaseline'; 
 import { Card, CardContent, Typography } from '@mui/material'
 import { Button } from '@mui/material'
 
@@ -39,21 +38,30 @@ export default function CocktailCard() {
       });
     }, []); 
 
-    if (!cocktail) {
-      return 'Loading...'
-    }
 
-    function handleSave() {
-      fetch('http://localhost:8000/api/favorites', {
+    async function handleSave(e) {
+      e.preventDefault();
+      try {
+      const response = await fetch('http://localhost:8000/api/favorites', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(cocktail),
       });
+      if(response.ok) {
+        alert('Cocktail saved!') 
+      } else {
+          alert('Failed to save cocktail');
+      }
+       } catch (error) {
+          alert('Failed to save cocktail');
+      }
+    };
+
+    if (!cocktail) {
+      return 'Loading...'
     }
-
-
 
     const thumbnailUrl = `${cocktail.strDrinkThumb}/preview`
 
@@ -88,8 +96,8 @@ export default function CocktailCard() {
         </Card>
         
     )
-
 }
+
 
 // from django.db import models
 

@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"vite\" \"python3 /Users/chris/Desktop/lets-cook/cocktails/manage.py runserver\"",
+    "dev": "concurrently \"vite\" \"/Users/chris/Desktop/lets-cook/cocktails/venv/bin/python /Users/chris/Desktop/lets-cook/cocktails/manage.py runserver\"",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
