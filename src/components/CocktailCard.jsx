@@ -45,17 +45,20 @@ export default function CocktailCard() {
 return cookieValue;
 
 }
-  useEffect(() => {
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
-      .then(response => response.json())
-      .then(data => {
-        console.log(data.drinks[0]);
-        setCocktail(data.drinks[0]);
-      });
-    }, []); 
+
+const fetchCocktail = () => {
+  fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
+    .then(response => response.json())
+    .then(data => {
+      console.log(data.drinks[0]);
+      setCocktail(data.drinks[0]);
+    });
+}
+
+  useEffect(fetchCocktail, []); 
 
 
-    async function handleSave(e) {
+   const handleSave = async (e) => {
       e.preventDefault();
       try {
         const csrfToken = getCookie('csrftoken');
@@ -92,6 +95,9 @@ return cookieValue;
     return (
         <Card sx={{ width: 300, height: 600, margin: 1 }}>
             <CardContent>
+            <Button onClick={fetchCocktail} variant='contained' color='primary' sx={{ padding: 2, fontSize: 20, margin: '0 auto 20px', display: 'flex', justifyContent: 'center' }}>
+          Let's Shake It Up!
+          </Button>
                 <Typography variant="h5" component="h2">
                     {cocktail.strDrink}
                 </Typography>

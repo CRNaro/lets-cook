@@ -16,14 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from favorites.views import favorites_list 
-from favorites import views
 from favorites.views import favorites_list, favorites
+from favorites import views
 
 urlpatterns = [
-    path('', views.home, name='home'),
     path('admin/', admin.site.urls),
-    path('api/favorites', favorites_list, name='favorites_list'),
-    path('api/favorites/add/', favorites, name='favorites')
-]
+    path('', views.home, name='home'),
+    path('api/favorites/add/', favorites, name='favorites'),
+    path('api/favorites', favorites_list, name='favorites_list')
+   ]
 
