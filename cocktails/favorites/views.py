@@ -10,10 +10,14 @@ from django.views.decorators.csrf import csrf_protect
 # def home(request):
 #     return render(request, 'home.html')
 @csrf_protect
-def favorites(request):
+def favorites_list(request):
     if request.method == 'POST':
+        print('POST request received')
         data = json.loads(request.body)
         print('Received data:', data,) 
+
+        print('Received data keys:', data.keys())
+        print('Expected Keys:', ['strDrink', 'strInstructions', 'strIngredient1', 'strIngredient2', 'strIngredient3', 'strIngredient4', 'strIngredient5', 'strIngredient6', 'strIngredient7', 'strIngredient8', 'strIngredient9', 'strIngredient10', 'strIngredient11', 'strIngredient12', 'strIngredient13', 'strIngredient14', 'strIngredient15'])
 
         favorite = FavoriteCocktail.objects.create(
             name=data['strDrink'],

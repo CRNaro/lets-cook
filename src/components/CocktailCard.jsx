@@ -41,7 +41,7 @@ export default function CocktailCard() {
         }
       }
   }
-  console.log(`Cookie from [${name}]:`, cookieValue);
+  // console.log(`Cookie from [${name}]:`, cookieValue);
 return cookieValue;
 
 }
@@ -50,7 +50,7 @@ const fetchCocktail = () => {
   fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
     .then(response => response.json())
     .then(data => {
-      console.log(data.drinks[0]);
+      // console.log(data.drinks[0]);
       setCocktail(data.drinks[0]);
     });
 }
@@ -60,9 +60,10 @@ const fetchCocktail = () => {
 
    const handleSave = async (e) => {
       e.preventDefault();
+      console.log('Save button clicked');
       try {
         const csrfToken = getCookie('csrftoken');
-        console.log('CSRF token:', csrfToken);
+        // console.log('CSRF token:', csrfToken);
 
       const response = await fetch('http://localhost:8000/api/favorites', {
         method: 'POST',
@@ -93,7 +94,7 @@ const fetchCocktail = () => {
     const thumbnailUrl = `${cocktail.strDrinkThumb}/preview`
 
     return (
-        <Card sx={{ width: 300, height: 600, margin: 1 }}>
+        <Card sx={{ width: 300, height: 650, margin: 1 }}>
             <CardContent>
             <Button onClick={fetchCocktail} variant='contained' color='primary' sx={{ padding: 2, fontSize: 20, margin: '0 auto 20px', display: 'flex', justifyContent: 'center' }}>
           Let's Shake It Up!
@@ -119,10 +120,11 @@ const fetchCocktail = () => {
                     {cocktail.strInstructions}
                 </Typography>
                 <img src={thumbnailUrl} alt={cocktail.strDrink} />
-                <Button variant="contained" color="primary" onClick={handleSave}>
+             
+            </CardContent>
+            <Button variant="contained" color="primary" onClick={(handleSave)}>
                     Save
                 </Button>
-            </CardContent>
         </Card>
         
     )
