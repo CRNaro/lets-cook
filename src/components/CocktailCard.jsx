@@ -86,7 +86,7 @@ const fetchCocktail = () => {
 
     return (
       <Box display={{ xs: 'block', md: 'flex' }}>
-        <Card sx={{ width: 300, minHeight: 1000, margin: 1, boxShadow: 12,  }}>
+        <Card sx={{ width: 300, minHeight: 1000, margin: 1, boxShadow: 12, border: 'solid', borderColor: '#de7070' }}>
             <CardContent>
             <Button onClick={fetchCocktail} variant='contained' color='primary' sx={{ padding: 2, fontSize: 20, margin: '0 auto 20px', display: 'flex', justifyContent: 'center' }}>
           Let's Shake It Up!
@@ -157,8 +157,8 @@ const fetchCocktail = () => {
                 <Typography variant="body2" component="p" sx={{ padding: 2, fontSize: 20, margin: '0 auto 20px', display: 'flex', justifyContent: 'center' }}>
                     {cocktail.strInstructions}
                 </Typography>
-                <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-                <img src={thumbnailUrl} alt={cocktail.strDrink} />
+                <Box sx={{ display: 'flex', justifyContent: 'center'}}>
+                <img src={thumbnailUrl} alt={cocktail.strDrink} style={{border: 'solid', borderColor: '#204c39'}}/>
                 </Box>
             </CardContent>
             <Button variant="contained" color="primary" onClick={(handleSave)} sx={{ padding: 2, fontSize: 18, margin: '0 auto 20px', display: 'flex', justifyContent: 'center' }}>

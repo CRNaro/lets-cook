@@ -22,7 +22,7 @@ function FavoriteCocktails() {
     }
 
     return (
-        <Card sx={{ width: 300, minHeight: 1000, margin: 1 }}>
+        <Card sx={{ width: 300, minHeight: 1000, margin: 1, boxShadow: 12, border: 'solid', borderColor: '#de7070' }}>
         <div style={{ textAlign: 'center', fontSize: 10}}>
             <h1>Favorite Cocktails</h1>
             {favorites.map((cocktail, index) => (
