@@ -7,8 +7,9 @@ import { Global, css } from '@emotion/react'
 import CssBaseline from '@mui/material/CssBaseline';
 import { Button } from '@mui/material'
 import CocktailCard from './components/CocktailCard'
-import SongCard from './components/SongCard'
 import FavoriteCocktails from './components/FavoriteCocktails'
+import { Box } from '@mui/system' 
+
 
 const theme = createTheme({
   palette: {
@@ -43,9 +44,14 @@ return (
         <Global styles={css`body{
         background-color: ${theme.palette.primary.main};
       }`}/>
-      <div>
-    
-      </div>
+    <Box sx={{display: 'flex', justifyContent:'center', alignItems:'center', flexDirection:'row', width:'100vw'}} >
+    <Box sx={{ margin: 2 }}>
+    <CocktailCard />
+    </Box>
+    <Box sx={{ margin: 2 }}>
+    <FavoriteCocktails />
+    </Box>
+    </Box>
       </ThemeProvider>
      
 

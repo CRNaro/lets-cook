@@ -9,9 +9,9 @@ import { Box } from '@mui/system'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
-    <Box display={{ xs: 'block', md: 'flex' }}>
+    {/* <Box display={{ xs: 'block', md: 'flex' }}>
     <CocktailCard />
     <FavoriteCocktails />
-    </Box>
+    </Box> */}
   </StrictMode>,
 )
