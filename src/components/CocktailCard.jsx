@@ -66,7 +66,7 @@ const fetchCocktail = () => {
       cocktailData[`strMeasure${i}`] = cocktail[`strMeasure${i}`];
         }
 
-      const response = await fetch('http://localhost:8000/api/favorites', {
+      const response = await fetch('http://localhost:8000/api/favorites/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
