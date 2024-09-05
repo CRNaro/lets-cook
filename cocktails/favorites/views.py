@@ -49,19 +49,24 @@ def create_favorite(request):
 # Debugging why data is not being sent to the server
 logger = logging.getLogger(__name__)
 
+# def favorites_list(request):
+#     print("check to see if print statement is working")
+#     if request.method == 'GET':
+#         data = json.loads(request.body)
+#         logger.info('Received data: %s', data)
+#         favorite = FavoriteCocktail.objects.create(
+#             name=data['name'],
+#             description=data['description'],
+#             ingredients=data['ingredients'],
+#             instructions=data['instructions']
+#         )
+#         logger.info('Favorite created: %s', favorite)
 def favorites_list(request):
-    print("check to see if print statement is working")
     if request.method == 'GET':
-        data = json.loads(request.body)
-        logger.info('Received data: %s', data)
-        favorite = FavoriteCocktail.objects.create(
-            name=data['name'],
-            description=data['description'],
-            ingredients=data['ingredients'],
-            instructions=data['instructions']
-        )
-        logger.info('Favorite created: %s', favorite)
-        return JsonResponse({'message': 'success'})
+        favorites = FavoriteCocktail.objects.all()
+        favorites_json = serializers.serialize('json', favorites)
+        favorites_list = json.loads(favorites_json)
+        return JsonResponse(favorites_list, safe=False)
     else:
         return JsonResponse({'error': 'Invalid request method'}, status=405)
 
@@ -73,4 +78,5 @@ def favorites_list(request):
     favorites_json = serializers.serialize('json', favorites)
     favorites_list = json.loads(favorites_json)
     return JsonResponse(favorites_list, safe=False)
+
 

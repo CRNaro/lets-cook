@@ -22,7 +22,7 @@ from favorites import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    path('api/favorites', views.create_favorite, name='create_favorite'),
-    path('api/favorites_list', views.favorites_list, name='favorites_list')
+    path('api/favorites/', views.create_favorite, name='create_favorite'),
+    path('api/favorites_list/', views.favorites_list, name='favorites_list')
    ]
 
